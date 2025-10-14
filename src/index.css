@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+  Globalny styl MJ Trust
+  - Czysty, nowoczesny design
+  - Szklane karty, jasny gradient
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-to-br from-sky-50 via-white to-indigo-50 text-neutral-800 antialiased;
+}
+
+section {
+  @apply py-24 sm:py-28;
+}
+
+/* Szklana karta */
+.glass {
+  @apply bg-white/70 border border-white/50 backdrop-blur-xl shadow-lg rounded-3xl;
+}
+
+/* Przycisk szklany */
+.glass-btn {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/80 px-5 py-2.5 
+         text-neutral-900 shadow-sm backdrop-blur-md transition active:scale-[0.98] hover:bg-white;
+}
+
+/* Przyciski akcentowe */
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-indigo-600 text-white px-6 py-3 shadow-md transition
+         hover:bg-indigo-500 active:scale-95;
+}
+
+/* Kontener sekcji */
+.section-container {
+  @apply mx-auto w-[min(95vw,1200px)] px-4 sm:px-6;
+}
+
+/* Nagłówki */
+.section-title {
+  @apply text-3xl sm:text-4xl font-semibold text-neutral-900;
+}
+.section-subtitle {
+  @apply mt-2 text-neutral-600;
+}
