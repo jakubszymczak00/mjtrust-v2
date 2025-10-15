@@ -146,9 +146,20 @@ export default function LodgingModal({ isOpen, onClose, lodging }) {
               <div className="flex justify-end pt-4">
                 <button
                   onClick={onClose}
-                  className="btn-primary bg-indigo-600 hover:bg-indigo-500"
+                  className="
+                    absolute top-4 right-4
+                    z-[60]
+                    flex items-center justify-center
+                    h-10 w-10
+                    rounded-full
+                    bg-white/70 backdrop-blur-md
+                    text-neutral-800 text-lg font-semibold
+                    shadow-[0_2px_10px_rgba(0,0,0,0.15)]
+                    border border-white/60
+                    transition-all duration-200 hover:bg-white/90 hover:scale-105
+                  "
                 >
-                  Zamknij
+                  ×
                 </button>
               </div>
             </div>

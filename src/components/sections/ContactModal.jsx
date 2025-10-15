@@ -43,7 +43,7 @@ export default function ContactModal({ isOpen, onClose }) {
           onClick={onClose}
         >
           <motion.div
-            className="glass w-[90%] max-w-lg p-8 rounded-3xl relative shadow-2xl"
+            className="glass w-[90%] max-w-lg p-8 rounded-3xl relative shadow-2xl border border-white/50"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -51,12 +51,23 @@ export default function ContactModal({ isOpen, onClose }) {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Zamknij */}
-            <button
-              onClick={onClose}
-              className="absolute top-3 right-3 p-2 rounded-full hover:bg-neutral-100/70 transition"
-            >
-              <X size={20} className="text-neutral-700" />
-            </button>
+          <button
+            onClick={onClose}
+            className="
+              absolute top-4 right-4
+              z-[60]
+              flex items-center justify-center
+              h-10 w-10
+              rounded-full
+              bg-white/70 backdrop-blur-md
+              text-neutral-800 text-lg font-semibold
+              shadow-[0_2px_10px_rgba(0,0,0,0.15)]
+              border border-white/60
+              transition-all duration-200 hover:bg-white/90 hover:scale-105
+            "
+          >
+            ×
+          </button>
 
             <h3 className="text-2xl font-semibold text-neutral-900 text-center mb-6">
               Zapytaj o ofertę
