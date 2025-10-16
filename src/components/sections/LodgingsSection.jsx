@@ -47,12 +47,12 @@ export default function LodgingsSection() {
 
   return (
     <section
-      id="obiekty"
-      className="py-20 sm:py-28 bg-gradient-to-br from-indigo-50 via-white to-sky-100"
+      id="lodgings"
+      className="py-20 sm:py-28 bg-transparent"
     >
-      <div className="section-container">
+      <div className="section-container text-center">
         <h2 className="section-title">Nasze obiekty</h2>
-        <p className="section-subtitle max-w-2xl">
+        <p className="section-subtitle max-w-2xl mx-auto">
           Każdy obiekt posiada podstawowe udogodnienia — kuchnię, łazienkę,
           dostęp do Wi-Fi oraz miejsca parkingowe.
         </p>

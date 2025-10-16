@@ -5,6 +5,7 @@
   - Czysty, nowoczesny design
   - Szklane karty, jasny gradient
 */
+html, body, #root { height: 100%; }
 
 html {
   scroll-behavior: smooth;
@@ -20,30 +21,28 @@ section {
 
 /* Szklana karta */
 .glass {
-  @apply bg-white/70 border border-white/50 backdrop-blur-xl shadow-lg rounded-3xl;
+  @apply bg-white/80 border border-white/40 backdrop-blur-2xl shadow-xl rounded-3xl;
 }
 
 /* Przycisk szklany */
 .glass-btn {
   @apply inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/80 px-5 py-2.5 
-         text-neutral-900 shadow-sm backdrop-blur-md transition active:scale-[0.98] hover:bg-white;
+         text-neutral-900 shadow-sm backdrop-blur-md transition
+         hover:bg-white active:scale-[0.98];
 }
 
 /* Przyciski akcentowe */
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-full bg-indigo-600 text-white px-6 py-3 shadow-md transition
+  @apply inline-flex items-center gap-2 rounded-full px-6 py-3
+         bg-indigo-600 text-white shadow-md transition
          hover:bg-indigo-500 active:scale-95;
 }
 
 /* Kontener sekcji */
 .section-container {
-  @apply mx-auto w-[min(95vw,1200px)] px-4 sm:px-6;
+  @apply mx-auto max-w-6xl px-4 sm:px-6;
 }
 
 /* Nagłówki */
-.section-title {
-  @apply text-3xl sm:text-4xl font-semibold text-neutral-900;
-}
-.section-subtitle {
-  @apply mt-2 text-neutral-600;
-}
+.section-title { @apply text-3xl sm:text-4xl font-semibold text-neutral-900; }
+.section-subtitle { @apply mt-2 text-neutral-600; }

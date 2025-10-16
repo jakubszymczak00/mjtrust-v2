@@ -20,8 +20,8 @@ export default function PricingSection() {
 
   return (
     <section
-      id="cennik"
-      className="py-20 sm:py-28 bg-gradient-to-br from-indigo-50 via-white to-sky-50"
+      id="pricing"
+      className="py-20 sm:py-28 bg-transparent"
     >
       <div className="section-container text-center">
         <motion.h2
