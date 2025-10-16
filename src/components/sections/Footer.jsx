@@ -9,7 +9,7 @@ export default function Footer() {
             © {new Date().getFullYear()} MJ Trust — noclegi pracownicze
           </p>
           <p className="text-md text-neutral-500">
-            Kontakt: kontakt@mjtrust.pl
+            Kontakt: biuro@mjtrust.pl
           </p>
         </div>
       </div>
