@@ -46,7 +46,7 @@ export default function Footer() {
               href="mailto:kontakt@mjtrust.pl"
               className="flex items-center gap-1.5 text-neutral-700 hover:text-neutral-900 transition text-[15px]"
             >
-              <Mail className="h-3.5 w-3.5 opacity-70" /> kontakt@mjtrust.pl
+              <Mail className="h-3.5 w-3.5 opacity-70" /> biuro@mjtrust.pl
             </a>
           </div>
         </div>

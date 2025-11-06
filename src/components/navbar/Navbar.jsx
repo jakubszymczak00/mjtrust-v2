@@ -63,7 +63,7 @@ export default function Navbar() {
       </div>
 
       {/* Navbar – tylko przyciski, wyśrodkowane */}
-      <nav className="relative flex justify-center mt-4">
+      <nav className="relative flex justify-center mt-2">
         <div
           className="
             flex items-center justify-center

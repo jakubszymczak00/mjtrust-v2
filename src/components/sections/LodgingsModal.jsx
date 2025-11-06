@@ -1,12 +1,10 @@
 /*
-  LodgingModal.jsx
-  - Wersja z galerią zdjęć, miniaturkami, lokalizacją i udogodnieniami.
-  - Glass morphism + animacje framer-motion.
+  LodgingModal.jsx — z dodaną lokalizacją + przyciskiem Trasa (Google Maps)
 */
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MapPin, Wifi, Car, Utensils, Home } from "lucide-react";
+import { X, MapPin, Map, Wifi, Car, Utensils, Home } from "lucide-react";
 
 export default function LodgingModal({ isOpen, onClose, lodging }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,6 +19,11 @@ export default function LodgingModal({ isOpen, onClose, lodging }) {
 
   const nextImage = () => setActiveIndex((prev) => (prev + 1) % images.length);
   const prevImage = () => setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  // Link do trasy Google Maps
+  const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    lodging.location || ""
+  )}`;
 
   return (
     <AnimatePresence>
@@ -50,12 +53,12 @@ export default function LodgingModal({ isOpen, onClose, lodging }) {
             </button>
 
             {/* Galeria główna */}
-            <div className="relative h-64 sm:h-80 mb-4 rounded-2xl overflow-hidden">
+            <div className="relative aspect-[4/3] mb-4 rounded-2xl overflow-hidden">
               <motion.img
                 key={activeIndex}
                 src={images[activeIndex]}
                 alt={lodging.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain sm:object-cover"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
@@ -101,21 +104,31 @@ export default function LodgingModal({ isOpen, onClose, lodging }) {
             )}
 
             {/* Treść */}
-            <div className="space-y-4">
+            <div className="space-y-5">
               <h3 className="text-2xl font-semibold text-neutral-900">
                 {lodging.title}
               </h3>
 
-              {/* Lokalizacja */}
+              {/* Lokalizacja + przycisk Trasa */}
               {lodging.location && (
-                <div className="flex items-center gap-2 text-neutral-600">
-                  <MapPin size={18} className="text-indigo-600" />
-                  <span>{lodging.location}</span>
+                <div className="flex flex-wrap items-center gap-3 text-neutral-700">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={20} className="text-indigo-600" />
+                    <span className="font-medium">{lodging.location}</span>
+                  </div>
+                  <a
+                    href={mapsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-3 py-1 rounded-full bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 transition"
+                  >
+                    <Map size={16} /> Trasa
+                  </a>
                 </div>
               )}
 
               <p className="text-neutral-700 leading-relaxed">{lodging.desc}</p>
-
+              
               {/* Udogodnienia */}
               {lodging.amenities && (
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -141,27 +154,6 @@ export default function LodgingModal({ isOpen, onClose, lodging }) {
                   )}
                 </div>
               )}
-
-              {/* Przycisk zamknięcia */}
-              <div className="flex justify-end pt-4">
-                <button
-                  onClick={onClose}
-                  className="
-                    absolute top-4 right-4
-                    z-[60]
-                    flex items-center justify-center
-                    h-10 w-10
-                    rounded-full
-                    bg-white/70 backdrop-blur-md
-                    text-neutral-800 text-lg font-semibold
-                    shadow-[0_2px_10px_rgba(0,0,0,0.15)]
-                    border border-white/60
-                    transition-all duration-200 hover:bg-white/90 hover:scale-105
-                  "
-                >
-                  ×
-                </button>
-              </div>
             </div>
           </motion.div>
         </motion.div>
